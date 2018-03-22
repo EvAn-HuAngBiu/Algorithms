@@ -1,0 +1,31 @@
+import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
+public class Evaluate {
+    public static void main(String[] args) {
+        Stack<String> ops = new Stack<String>();
+        Stack<Double> vals = new Stack<Double>();
+        while(!StdIn.isEmpty()) {
+            String s = StdIn.readString();
+            if(s.equals("("));
+            else if(s.equals("+") || s.equals("-") || s.equals("*")
+                    || s.equals("*") || s.equals("/") || s.equals("sqrt"))
+                ops.push(s);
+            else if(s.equals(")")) {
+                String op = ops.pop();
+                double v = vals.pop();
+                switch(op) {
+                    case "+": v += vals.pop(); break;
+                    case "-": v = vals.pop() - v; break;
+                    case "*": v *= vals.pop(); break;
+                    case "/": v = vals.pop() / v; break;
+                    case "sqrt": v = Math.sqrt(v);
+                }
+                vals.push(v);
+            }
+            else vals.push(Double.parseDouble(s));
+        }
+        StdOut.println(vals.pop());
+    }
+}
