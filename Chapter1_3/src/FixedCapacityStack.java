@@ -22,7 +22,9 @@ public class FixedCapacityStack<Item> implements Iterable<Item> {
         return temp;
     }
 
-    public boolean isEmpty() {return N == 0;}
+    public boolean isEmpty() { return N == 0; }
+
+    public boolean isFull() { return N == a.length; }
 
     public int size() {return N;}
 
