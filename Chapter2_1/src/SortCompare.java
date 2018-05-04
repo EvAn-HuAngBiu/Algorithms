@@ -22,6 +22,9 @@ public class SortCompare {
             case "Insertion_OPT2":
                 JuniorSort.insertSort_OPT2(a);
                 break;
+            case "InsertSortWithSentry":
+                Ex24.insertSortWithSentry(a);
+                break;
             case "Selection":
                 JuniorSort.selectSort(a);
                 break;
@@ -60,9 +63,10 @@ public class SortCompare {
         String alg5 = "Insertion_OPT1";
         String alg6 = "Selection_OPT1";
         String alg7 = "Insertion_OPT2";
+        String alg8 = "InsertSortWithSentry";
 
-        int N = 2000;    // 数组长度
-        int T = 2000;    // 数组数量
+        int N = 1000;    // 数组长度
+        int T = 1000;    // 数组数量
         double t1 = timeRandomInput(alg1, N, T);
         double t2 = timeRandomInput(alg2, N, T);
         double t3 = timeRandomInput(alg3, N, T);
@@ -70,6 +74,7 @@ public class SortCompare {
         double t5 = timeRandomInput(alg5, N, T);
         double t6 = timeRandomInput(alg6, N, T);
         double t7 = timeRandomInput(alg7, N, T);
+        double t8 = timeRandomInput(alg8, N, T);
 
 
         StdOut.printf("Insertion : %.4f s\n", t1);
@@ -79,6 +84,7 @@ public class SortCompare {
         StdOut.printf("Insertion with optimization 1 : %.4f s\n", t5);
         StdOut.printf("Selection with optimization 1 : %.4f s\n", t6);
         StdOut.printf("Insertion with optimization 2 : %.4f s\n", t7);
+        StdOut.printf("Insertion with sentry : %.4f s\n", t8);
 
     }
 }

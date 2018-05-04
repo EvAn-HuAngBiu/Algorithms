@@ -34,6 +34,20 @@ public class LinkedListQueue<Item> implements Iterable<Item> {
         return val;
     }
 
+    public Node reverse(Node n) {
+        if(head.next == null || head.next.next == null) {
+            return null;
+        }
+        if(n.next == null) {
+            head.next = n;
+            return n;
+        }
+        var newhead = reverse(n.next);
+        newhead.next = n;
+        n.next = null;
+        return n;
+    }
+
     @Override
     public Iterator<Item> iterator() {
         return new ListIterator();
@@ -51,12 +65,20 @@ public class LinkedListQueue<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        LinkedListQueue<String> q = new LinkedListQueue<>();
-        while(!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if(!item.equals("-")) q.enqueue(item);
-            else if(!q.isEmpty()) StdOut.print(q.dequeue() + " ");
+        LinkedListQueue<Integer> q = new LinkedListQueue<>();
+//        while(!StdIn.isEmpty()) {
+//            String item = StdIn.readString();
+//            if(!item.equals("-")) q.enqueue(item);
+//            else if(!q.isEmpty()) StdOut.print(q.dequeue() + " ");
+//        }
+//        StdOut.println(q.size() + " left on queue");
+        for(int i = 1; i <= 8; i++) {
+            q.enqueue(i);
         }
-        StdOut.println(q.size() + " left on queue");
+        q.reverse(q.head);
+        for(var i : q) {
+            StdOut.print(q + " ");
+        }
+        StdOut.println();
     }
 }

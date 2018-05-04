@@ -7,12 +7,12 @@
 
 public class JuniorSort {
 
-    private static boolean less(Comparable v, Comparable w) {
+    public static boolean less(Comparable v, Comparable w) {
         // 返回v是否小于w
         return v.compareTo(w) < 0;
     }
 
-    private static void exch(Comparable[] a, int i, int j) {
+    public static void exch(Comparable[] a, int i, int j) {
         // 交换两个元素
         Comparable t = a[i];
         a[i] = a[j];
