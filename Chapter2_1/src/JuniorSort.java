@@ -80,14 +80,16 @@ public class JuniorSort {
 
     public static void insertSort_OPT1(Comparable[] a) {
         // 经过一次优化的插入排序
-        // 设置监视哨temp
+        // 减少赋值次数
         int N = a.length;
         for (int i = 1; i < N; i++) {
+            int j = i;
             Comparable temp = a[i];
-            for (int j = i; j > 0 && less(temp, a[j - 1]); j--) {
+            while (j > 0 && less(temp, a[j - 1])) {
                 a[j] = a[j - 1];
-                a[j - 1] = temp;
+                j--;
             }
+            a[j] = temp;
         }
     }
 
