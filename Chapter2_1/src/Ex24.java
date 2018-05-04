@@ -5,9 +5,10 @@
 public class Ex24 {
     /**
      * 带哨兵的插入排序
-     * @date 2018/5/4
+     *
      * @param arr 待排序的可比较数组
-     * */
+     * @date 2018/5/4
+     */
     public static void insertSortWithSentry(Comparable[] arr) {
         // 数组arr的0号元素为哨兵位不参与排序
         int N = arr.length;

@@ -41,11 +41,11 @@ public class SortCompare {
         return timer.elapsedTime();
     }
 
-    public static double timeRandomInput (String alg, int N, int T) {
+    public static double timeRandomInput(String alg, int N, int T) {
         // 使用算法alg将T个长度为N的数组排序
         double total = 0.0;
         var a = new Double[N];
-        for(int t = 0; t < T; t++) {
+        for (int t = 0; t < T; t++) {
             //进行一次测试(生成一个数组并排序)
             for (int i = 0; i < N; i++) {
                 a[i] = StdRandom.uniform();
