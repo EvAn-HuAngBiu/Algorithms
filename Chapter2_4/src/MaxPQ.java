@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.StdOut;
+
 /**
  * Priority queue
  *
@@ -40,8 +42,8 @@ public class MaxPQ<Key extends Comparable<Key>> {
             }
             if (less(k, j)) {
                 exch(k, j);
-                k = j;
             }
+            k = j;
         }
     }
 
@@ -66,13 +68,47 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return val;
     }
 
+    public void display() {
+        for (int i = 1; i <= N; i++) {
+            StdOut.print(pq[i]);
+        }
+        StdOut.println();
+    }
+
     public static void main(String[] args) {
-        var pq = new MaxPQ<Integer>(20);
-        pq.insert(12);
-        pq.insert(8);
-        pq.insert(4);
-        pq.insert(9);
-        pq.insert(1);
-        pq.insert(13);
+        var pq = new MaxPQ<Character>(20);
+        pq.insert('P');
+        pq.insert('R');
+        pq.insert('I');
+        pq.insert('O');
+        StdOut.print(pq.delMax());
+        pq.insert('R');
+        StdOut.print(pq.delMax());
+        StdOut.print(pq.delMax());
+        pq.insert('I');
+        StdOut.print(pq.delMax());
+        pq.insert('T');
+        StdOut.print(pq.delMax());
+        pq.insert('Y');
+        StdOut.print(pq.delMax());
+        StdOut.print(pq.delMax());
+        StdOut.print(pq.delMax());
+        pq.insert('Q');
+        pq.insert('U');
+        pq.insert('E');
+        StdOut.print(pq.delMax());
+        StdOut.print(pq.delMax());
+        StdOut.print(pq.delMax());
+        pq.insert('U');
+        StdOut.print(pq.delMax());
+        pq.insert('E');
+
+        StdOut.println();
+        String str = "EASYQUESTION";
+        var newpq = new MaxPQ<Character>(20);
+        for (int i = 0; i < str.length(); i++) {
+            newpq.insert(str.charAt(i));
+        }
+        newpq.display();
     }
 }
